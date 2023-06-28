@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>script 编写注意事项</title>
+</head>
+<body>
+  <!-- 
+    内部脚本：HTML 文件中嵌入脚本程序
+   -->
+
+
+
+   <script type="text/javascript">
+      /*
+        1. 必须有闭合标签 
+        2. type 属性的多样性, 默认值是 text/javascript
+          
+       */
+   </script>
+
+<!-- 
+  type 语义化： 可以用于存储静态数据
+               存取模板
+ -->
+   <script type="application/json" id="jsonData">
+    [
+      {
+        "id": 1,
+        "name": "张三",
+        "age":  16
+      },
+      {
+        "id": 1,
+        "name": "李四",
+        "age": 18
+      },
+      {
+        "id": 1,
+        "name": "王五",
+        "age": 20
+      }
+    ]
+   </script>
+   
+   <script>
+     const oJsonData = document.getElementById('jsonData');
+     const jsonData = JSON.parse(oJsonData.innerHTML);
+
+     console.log(jsonData);
+   </script>
+
+   <script type="text/html">
+    <div>
+      <h1>Hello world!</h1>
+    </div>
+   </script>
+   
+   /*
+
+   */
+   <script type="module">
+    import './outer.js'
+    /*
+      脚本程序可以是一个模块程序 (ES MODULE 规范 )
+
+      使用模块化脚本的条件
+      1. 增加 type="module"
+      2. 开启服务器对 HTML 进行访问
+        模块化的导入是需要发起 HTTP 请求的
+ap
+      如何启动服务
+        1. 安装 Node JS 程序
+        2. npm/yarn i -g
+        3. cd 进入文件夹
+        4. 
+
+      ES Module 对于其他模块的导入 (import)
+    */
+   </script>
+
+   <script nomodule>
+      console.log('No module');
+   </script>
+
+   <!-- 
+    外部脚本，外部脚本文件 
+    内外脚本一起写，只解析执行外部脚本
+    -->
+   <!-- <script src="outer.js"></script> -->
+
+</body>
+</html>

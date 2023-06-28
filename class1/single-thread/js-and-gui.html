@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>js 与 渲染互斥性</title>
+</head>
+<body>
+  <div style="width: 100px; height: 100px; background-color: green;"></div>
+
+  <script>
+    const oDiv = document.querySelector('div'); 
+
+    /**
+     *  只会渲染 hotpink 一次
+     * 
+     *  js 引擎线程 与 GUI 线程是互斥性
+     */
+    oDiv.style.background  = 'red';
+    oDiv.style.background  = 'orange';
+    oDiv.style.background  = 'hotpink';
+  </script>
+</body>
+</html>

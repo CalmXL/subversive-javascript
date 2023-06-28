@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>script 顺序</title>
+</head>
+<body>
+  
+  <!-- 
+    脚本之间是按照顺序同步执行的
+
+    内部脚本： 解析执行程序
+    外部脚本： 加载解析程序
+
+    script 脚本在解析执行期间是有阻塞的
+   -->
+
+  <script>
+    document.write('script-1');
+    document.write('-------');
+  </script>
+
+  <script>
+    document.write('script-2');
+  </script>
+  
+  <!-- 脚本与脚本之间的错误时隔离的 -->
+  <!-- 
+    javaScript 运行三步骤：
+      1. 语法检查
+      2. 预编译、预解析
+      3. 执行代码
+
+   -->
+  <script>
+    a;
+    console.log('Script 11');
+  </script>
+
+  <script>
+    console.log('Script 22');
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>async </title>
+</head>
+<body>
+  
+  <script>
+    // document.write('王者荣耀开始更新...<br />');
+    // document.write('更新中....<br />');
+    // document.write('更新完成<br />');
+    // document.write('学习javaScript....<br />');
+    // document.write('玩王者荣耀<br />');
+
+    const p1 = new Promise((resolve) => {
+      document.write('王者荣耀开始下载<br />');
+      document.write('更新中...<br />');
+      resolve();
+    });
+
+    p1.then(() => {
+      document.write('更新完成<br />');
+    }).then(() => {
+      p2.then(() => {
+        document.write('玩王者荣耀<br />')
+      })
+    });
+
+    const p2 = new Promise(resolve => {
+      document.write('学习Javascript任务<br />');
+      resolve();
+    });
+  </script>
+</body>
+</html>
